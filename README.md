@@ -11,8 +11,8 @@ Simple &amp; Slim Ruby SDK for the GrapheneDB API
 
 ## Install
 
-Use 'gem install' command or add graphenedb Gemfile
-```ruby
+Use 'gem install' command or add graphenedb to Gemfile
+```shell
 gem install graphenedb
 ```
 
@@ -25,7 +25,7 @@ then get your api key [here](https://app.graphenedb.com/account/api-clients).
 Graphenedb.configure do |config|
   config.api_key = 'your-api-key'
   # configuration defaults, uncomment to change
-  # config.version ='v314'
+  # config.version = 'v314'
   # config.region  = 'us-east-1'
   # config.plan    = 'sandbox'
 end
@@ -77,10 +77,13 @@ To create a database:
 Graphenedb.create_database('database-name')
 
 # you can also use a hash to specify config:
-Graphenedb.clone_database(name: 'name', region: 'us-west-2')
+Graphenedb.create_database(name: 'name', region: 'us-west-2')
 
-# options defaults: {version: 'v314', region: 'us-east-1', plan: 'sandbox'}
+# config defaults: {version: 'v314', region: 'us-east-1', plan: 'sandbox'}
 ```
+> * version: must be a valid version identifier from Graphenedb.versions
+> * region: aws region [us-east-1, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-central-1, ap-northeast-1, ap-southeast-1, ap-southeast-2]
+> * plan: [sandbox, developer0, s1, s2, p1, p2, p3, p4]
 
 To clone a database:
 
@@ -92,8 +95,11 @@ Graphenedb.clone_database(id: 'id', name: 'name', region: 'us-west-2')
 
 # config defaults: {version: 'v314', region: 'us-east-1', plan: 'sandbox'}
 ```
+> * version: must be a valid version identifier from Graphenedb.versions
+> * region: aws region [us-east-1, us-west-1, us-west-2, ca-central-1, eu-west-1, eu-west-2, eu-central-1, ap-northeast-1, ap-southeast-1, ap-southeast-2]
+> * plan: [sandbox, developer0, s1, s2, p1, p2, p3, p4]
 
-To delete a database (by id):
+To delete a database:
 
 ```ruby
 Graphenedb.delete_database('id')
@@ -195,14 +201,15 @@ Graphenedb.import('database-id', 'url-of-backup')
 
 Graphenedb.import(id: 'database-id', url: 'url-of-backup')
 ```
+> * url: Link to S3 graphdb.zip
 
 ---
 
 ### TODO
-* Tests (important)
+* Automated tests (important)
 
 
 
 ### Questions or Problems?
 
-[Create a new issue](https://github.com/rickybrown/graphenedb/issues) on Github and/or [submit an pull request](https://github.com/rickybrown/graphenedb/pulls) :)
+[Create a new issue](https://github.com/rickybrown/graphenedb/issues) on Github and/or [submit a pull request](https://github.com/rickybrown/graphenedb/pulls) :)
