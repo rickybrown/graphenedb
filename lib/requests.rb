@@ -21,7 +21,6 @@ def call(args)
   path   = args[1]
   params = args[2]
 
-  # arguments = args.flatten
   # construct api endpoint
   uri  = URI("#{ENDPOINT}/#{path}")
   http = Net::HTTP.new(uri.host, uri.port)
@@ -43,6 +42,6 @@ def call(args)
   if res.code == '401'
     "Unauthorized. Have you configured your GrapheneDB api key?"
   else
-    JSON.parse(res.body)
+    res.body ? JSON.parse(res.body) : 'no content'
   end
 end

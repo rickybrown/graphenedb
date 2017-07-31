@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'graphenedb'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.date        = '2017-07-28'
   s.summary     = "GrapheneDB for Ruby"
   s.description = "Simple & Slim Ruby SDK for the GrapheneDB API"
