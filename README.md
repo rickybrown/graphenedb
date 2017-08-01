@@ -1,5 +1,5 @@
 # GrapheneDB
-Simple &amp; Slim Ruby SDK for the GrapheneDB API
+Simple Ruby Wrapper for the GrapheneDB API
 
 
 ## Requirements
